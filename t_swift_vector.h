@@ -150,7 +150,9 @@ int shake_it_off(swift_t *t_swift, int index)
      #endif
      
      if (index >= t_swift->ex_lovers || index < 0) {
+	  #if THREADSAFE
 	  pthread_mutex_unlock(&t_swift->we_are_never_ever_getting_back_together);
+	  #endif
 	  return 0;
      }
 
